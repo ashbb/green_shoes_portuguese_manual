@@ -229,18 +229,18 @@ Essas variáveis de instância acabarão todas dentro do objeto App.
  end
 }}}
 
-==== Block Redirection ====
+==== Redirecionamento de bloco ====
 
-The `stack` block is a different story, though.  It doesn't change `self` and
-it's basically a regular block.
+O bloco `stack`, porém, é uma história diferente.  Ele não muda `self` e
+é basicamente um bloco regular.
 
-'''But there's a trick:''' when you attach a `stack` and give it a block, the
-App object places that stack in its memory.  The stack gets popped off when the
-block ends.  So all drawing inside the block gets '''redirected''' from the
-App's top slot to the new stack.
+'''Mas há um truque:''' quando você anexa um `stack` e fornhece-lhe um bloco, o
+objeto App coloca esse stack na sua memória.  O stack é retirado quando o bloco 
+termina.  Assim, toda a elaboração dentro do bloco é '''redirecionada''' a partir do
+slot superior à pilha nova do App.
 
-So those three `para`s will get drawn on the `stack`, even though they actually
-get sent to the App object first.
+Então esses três `para`s serão elaborados no `stack`, mesmo que eles realmente 
+são enviados para o objeto App primeiro.
 
 {{{
  Shoes.app do
@@ -252,13 +252,13 @@ get sent to the App object first.
  end
 }}}
 
-A bit tricky, you see?  This can bite you even if you know about it.
+Um pouco complicado, você vê? Isto pode mordê-lo, mesmo que você saiba sobre ele.
 
-One way it'll get you is if you try to edit a stack somewhere else in your
-program, outside the `app` block.
+Uma maneira em que vai te pegar é se você tentar editar um stack em algum outro lugar no seu
+programa, fora do bloco `app`.
 
-Like let's say you pass around a stack object.  And you have a class that edits
-that object.
+Vamos dizer que você passe por aí um objeto stack. E você tem uma classe que edita
+esse objeto.
 
 {{{
  class Messenger
@@ -277,15 +277,15 @@ that object.
  end
 }}}
 
-So, let's assume you pass the stack object into your Messenger class when the
-app starts.  And, later, when a message comes in, the `add` method gets used to
-append a paragraph to that stack.  Should work, right?
+Assim, vamos supor que você passe o objeto stack na sua classe Messenger quando a
+aplicação começa.  E, mais tarde, quando uma mensagem chega, o método `add` 
+acrescenta um parágrafo para o stack.  Deve funcionar, certo?
 
-Nope, it won't work.  The `para` method won't be found.  The App object isn't
-around any more.  And it's the one with the `para` method.
+Não, não vai funcionar.  O método `para` não será encontrado.  O objeto App não é 
+mais disponível. E é aquele com o método `para`.
 
-Fortunately, each Shoes object has an `app` method that will let you reopen the
-App object so you can do some further editing.
+Felizmente, cada objeto Shoes tem um método `app` que permitirá que você reabra o
+objeto App para que você possa fazer alguma elaboração ulterior.
 
 {{{
  class Messenger
@@ -306,16 +306,16 @@ App object so you can do some further editing.
  end
 }}}
 
-As you can imagine, the `app` object changes `self` to the App object.
+Como você pode imaginar, o objeto `app` muda `self` para que seja o objeto App.
 
-So the rules here are:
+Assim, as regras aqui estão:
 
-1. '''Methods named "app" or which create new windows alter `self` to the App
-object.'''[[BR]](This is true for both Shoes.app and Slot.app, as well as
-[[Element.window]] and [[Element.dialog]].)[[BR]]
-2. '''Blocks attached to stacks, flows or any manipulation method (such as
-append) do not change self. Instead, they pop the slot on to the app's editing
-stack.'''
+1. '''Métodos chamados "app" ou que criem novas janelas alteram `self` para o objeto 
+App.'''[[BR]](Isto é verdade tanto quanto para Shoes.app como para Slot.app, assim como
+[[Element.window]] e [[Element.dialog]].)[[BR]]
+2. '''Blocos anexados a stacks, flows ou qualquer método de manipulação (tal como
+append) não mudam self. Em vez disso, they pop the slot on to the app's editing
+stack. eles TODOpop o slot para o stack de edição do aplicativo'''
 
 ==== Careful With Fixed Heights ====
 
