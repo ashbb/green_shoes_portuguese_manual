@@ -143,13 +143,13 @@ Essas são regras gerais encontrados em todo Green Shoes.  Enquanto Green Shoes 
 de simplicidade e clareza, existem alguns pontos que precisam ser
 estudados e lembrados.
 
-==== Shoes Blocos Complicados====
+==== Blocos Complicados do Shoes ====
 
-Okay, this is absolutely crucial.  Green Shoes does a trick with blocks.  This trick
-makes everything easier to read.  But it also can make blocks harder to use
-once you're in deep.
+Correto, isso é absolutamente crucial.  Green Shoes faz um truque com blocos.  Este truque
+torna tudo mais fácil de ler.  Mas também pode dificultar o uso dos blocos
+uma vez que você mergulha em profundidade.
 
-'''Let's take a normal Ruby block:'''
+'''Consideramos um normal bloco em Ruby:'''
 
 {{{
  Shoes.app do
@@ -160,15 +160,15 @@ once you're in deep.
  end
 }}}
 
-In Green Shoes, these sorts of blocks work the same.  This block above loops through
-the array and stores each object in the `item` variable.  The `item` variable
-disappears (goes out of scope) when the block ends.
+Em Green Shoes, esses tipos de blocos funcionam da mesma maneira.  O bloco acima percorre
+o array TODO(a matriz) e armazena cada objeto na variável `item`.  A variável `item` 
+desaparece (fica fora do escopo) quando o bloco termina.
 
-One other thing to keep in mind is that `self` stays the same inside normal
-Ruby blocks.  Whatever `self` was before the call to `each`, it is the same
-inside the `each` block.
+Um outro aspecto a ter em mente é que `self` permanece o mesmo dentro blocs normais 
+em Ruby.  Qualquer coisa que `self` seja antes da chamada para `each`, é o mesmo 
+dentro do bloco `each`.
 
-'''Both of these things are also true for most Green Shoes blocks.'''
+'''Ambas as coisas são também verdadeiras para a maioria dos blocos em Green Shoes.'''
 
 {{{
  Shoes.app do
@@ -180,13 +180,13 @@ inside the `each` block.
  end
 }}}
 
-Here we have two blocks.  The first block is sent to `Shoes.app`.  This `app`
-block changes `self`.
+Aqui temos dois blocos.  O primeiro bloco é enviado para `Shoes.app`.  O bloco `app`
+muda `self`.
 
-The other block is the `stack` block.  That block does NOT change self.
+O outro bloco é o bloco `stack`.  Este bloco NÃO muda self.
 
-'''For what reason does the `app` block change self?'''  Let's start by
-spelling out that last example completely.
+'''Por que razão é que o bloco `app` muda self?'''  Vamos começar 
+soletrando completamente o último exemplo.
 
 {{{
  Shoes.app do
@@ -198,11 +198,11 @@ spelling out that last example completely.
  end
 }}}
 
-All of the `self`s in the above example are the App object.  Green Shoes uses Ruby's
-`instance_eval` to change self inside the `app` block.  So the method calls to
-`stack` and `para` get sent to the app.
+Todos os `self` no exemplo acima são o objeto App.  Green Shoes usa o metodo `instance_eval`
+do Ruby para mudar self dentro do bloco `app`. Assim, as chamadas de método a 
+`stack` e `para` são enviados para o aplicativo.
 
-'''This also is why you can use instance variables throughout a Shoes app:'''
+'''Isso também possibilita usar variáveis de instância em uma aplicação do Shoes:'''
 
 {{{
  Shoes.app do
@@ -214,9 +214,9 @@ All of the `self`s in the above example are the App object.  Green Shoes uses Ru
  end
 }}}
 
-These instance variables will all end up inside the App object.
+Essas variáveis de instância acabarão todas dentro do objeto App.
 
-'''Whenever you create a new Shoes.app window, `self` is also changed.'''
+'''Sempre que você criar uma nova janela Shoes.app, `self` também é alterado.'''
 
 {{{
  Shoes.app title: "MAIN" do
