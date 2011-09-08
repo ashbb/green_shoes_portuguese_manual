@@ -317,9 +317,9 @@ App.'''[[BR]](Isto é verdade tanto quanto para Shoes.app como para Slot.app, as
 append) não mudam self. Em vez disso, they pop the slot on to the app's editing
 stack. eles TODOpop o slot para o stack de edição do aplicativo'''
 
-==== Careful With Fixed Heights ====
+==== Cuidado com alturas fixas ====
 
-Fixed widths on slots are great so you can split the window into columns.
+Larguras fixas em slots são excelentes para que você possa dividir a janela em colunas.
 
 {{{
  Shoes.app do
@@ -338,17 +338,17 @@ Fixed widths on slots are great so you can split the window into columns.
  end
 }}}
 
-Fixed heights on slots should be less common.  Usually you want your text and
-images to just flow down the window as far as they can.  Height usually happens
-naturally.
+Alturas fixas em slots devem ser menos comum.  Normalmente, você quer que seu texto e
+imagens apenas TODOfluem para baixo da janela na medida em que for possível.  Altura geralmente acontece
+naturalmente.
 
-The important thing here is that fixed heights actually force slots to behave
-differently.  To be sure that the end of the slot is chopped off perfectly, the
-slot becomes a '''nested window'''.  A new layer is created by the operating
-system to keep the slot in a fixed square.
+O importante aqui é que alturas fixas realmente forçam slots a se comportar
+diferentemente.  Para ter certeza de que o fim do slot é cortado perfeitamente, o
+slot torna-se uma '''janela aninhada'''.  Uma nova camada é criada pelo sistema 
+operativo para manter o slot em um quadrado fixo.
 
-On difference between normal slots and nested window slots is that the latter
-can have scrollbars.
+A diferença entre slots normais e janela de slots aninhados é que o último
+pode ter barras de rolagem.
 
 {{{
  Shoes.app do
@@ -361,12 +361,12 @@ can have scrollbars.
  end
 }}}
 
-These nested windows require more memory.  They tax the application a bit more.
-So if you're experiencing some slowness with hundreds of fixed-height slots,
-try a different approach.
+Estas janelas aninhadas requerem mais memória.  Elas cobram um imposto maior à aplicação.
+Então se você está experimentando alguma lentidão com centenas de slots com altura fixa,
+tente uma abordagem diferente.
 
-'''Note''': Fixed height magic (the slot becomes a nested window) is not implemented
-in Green Shoes so far. Scrollbar will appear automatically but at main window only.
+'''Nota''': a magia da altura fixa (o slot se torna uma janela aninhadas) não é implementada
+em Green Shoes até agora. Uma barra de rolagem aparecerá automaticamente, mas apenas na janela principal.
 
 {{{
  Shoes.app do
