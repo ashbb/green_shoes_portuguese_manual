@@ -1,24 +1,23 @@
 = Olá! =
 
 Shoes é um pequeno kit de ferramentas gráficas. É simples e direto. Shoes nasceu para ser fácil!
-Realmente, ele foi feito para iniciantes. -TODO There's really
-nothing to it. Green Shoes é um dos coloridos Shoes. É escrito em puro Ruby
-com Ruby/GTK2.
+Realmente, ele foi feito para iniciantes. Green Shoes é um dos sapatos coloridos. 
+É escrito em puro Ruby com Ruby/GTK2.
 
-Você vê, um programa trivial em Shoes pode ser de apenas uma linha:
+Você vê, um programa trivial em Shoes pode ter apenas uma linha:
 
 {{{
  #!ruby
  Shoes.app{button("Click me!"){alert("Good job.")}}
 }}}
 
-Programas em Shoes são escritos com uma linnguagem chamada Ruby. TODO When Shoes is handed
-this simple line of Ruby code, uma janela aparece com um botão nela onde se lê
-"Click me!" (Clique em mim). Quando o botão recebe o clique, uma message aparece.
+Programas em Shoes são escritos com uma linguagem chamada Ruby. Quando Shoes recebe
+essa simples linha de código Ruby, uma janela aparece com um botão nela onde se lê
+"Click me!" (Clique em mim). Quando o botão recebe o clique, uma mensagem aparece.
 
-No Windows 7, aqui está como isso deverá ficar: !{margin_left: 100}man-shot1.png!
+Aqui está como isso deverá ficar no Windows 7: !{margin_left: 100}man-shot1.png!
 
-Enquanto muitos aplicativos Shoes são jogos gráficos e programas de arte, você também pode TODO dispor
+Enquanto muitos aplicativos Shoes são jogos gráficos e programas de arte, você também pode dispor
 texto e editar controles facilmente. !{margin_left: 80}shoes-manual-apps.png!
 
 E, idealmente, programas em Shoes serão executados em qualquer uma das principais plataformas atuais.
